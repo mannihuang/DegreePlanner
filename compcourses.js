@@ -99,7 +99,7 @@ db.once('open', function() {
     optPreReq: ["MATH1131", "MATH1141"]
   });
 
-  math1131.save(function (err,res){
+  math1241.save(function (err,res){
     if (err) return console.log("save failure");
     console.log(res.name);
   });
@@ -176,7 +176,65 @@ db.once('open', function() {
     console.log(res.name);
   });
 
+  var comp3131 = new Course({
+    name: "Programming Languages and Compilers",
+    code: "COMP3131",
+    compPreReq: ""
+    optPreReq: ["COMP2511", "COMP2911"]
+  });
 
+  comp3131.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
+
+  var comp3141 = new Course({
+    name: "Software System Design and Implementation",
+    code: "COMP3141",
+    compPreReq: ""
+    optPreReq: ["COMP1927", "COMP2521"]
+  });
+
+  comp3141.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
+
+  var comp3231 = new Course({
+    name: "Operating Systems",
+    code: "COMP3231",
+    compPreReq: ""
+    optPreReq: [["COMP1521", "COMP2521"], ["COMP1521"."COMP1927"], ["COMP2121","COMP2521"], ["COMP2121","COMP1927"]]
+  });
+
+  comp3231.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
+
+  var comp3411 = new Course({
+    name: "Artificial Intelligence",
+    code: "COMP3411",
+    compPreReq: [""]
+    optPreReq: ["COMP1927", "COMP2521"]
+  });
+
+  comp3141.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
+
+  var comp4141 = new Course({
+    name: "Theory of Computation",
+    code: "COMP4141",
+    compPreReq: ["MATH1081"]
+    optPreReq: ["COMP1927", "COMP2521"]
+  });
+
+  comp4141.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
 
 
 /*  Course.find(function (err, res){
