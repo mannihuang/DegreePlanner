@@ -1,0 +1,17 @@
+
+
+<%= course.course_code %>
+
+<% if(course.one_of) { %>
+
+  <% course.one_of.forEach( function(current_course) { %>
+
+    <%= current_course %>
+    <br>
+
+  <% }); %>
+
+<% } %>
+
+
+<%= can_undertake %>
