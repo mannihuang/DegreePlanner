@@ -51,24 +51,31 @@
 
 	<h2>Available courses</h2>
         <p>Pick a course to get started!</p>
-	<form method='post' action='/addCourse'>
 	<% for(var i = 0; i < av_courses.length; i++) { %>
-	<button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= av_courses[i].code %>'>
+	<button type='submit' id='courseCode' onClick=check() name='courseCode' class="btn btn-primary btn-lg outline" value='<%= av_courses[i].code %>'>
 	<%= av_courses[i].code %></button>
 	<% } %>
-	</form>
       
       </div>
       <div id="snap" class="col-sm-8" ondrop="drop(event)" ondragover="allowDrop(event)">
         <h1>Selected courses</h1>
-	<form method='post' action='/delCourse'>
 	<% for(var i = 0; i < chosen_courses.length; i++) { %>
 	    <button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= chosen_courses[i].code %>'>
 	    <%= av_courses[i].code %></button>
 	<% } %>
-</form>
       </div>
     </div>
   </div>
+  <script>
+  function check() {
+	  $.post("/addCourse", function(data) {
+	  console.log( "Foo function result:", data );
+	  $('#snap').empty();
+	  $('#snap').append("<p> " + data +  "</p>");
+	  });
+  }
+  </script>
+	      })
+  }
 </body>
 </html>
