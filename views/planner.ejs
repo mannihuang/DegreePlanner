@@ -1,0 +1,16 @@
+<h1>Welcome, you have chosen:</h1>
+<form method='post' action='/users/delCourse'>
+<% for(var i = 0; i < chosen_courses.length; i++) { %>
+    <input type='submit' id='courseCode' name='courseCode' value='<%= chosen_courses[i].code %>'>
+    <br>
+<% } %>
+</form>
+
+<br>
+<h1>Here are available courses</h1>
+<form method='post' action='/users/addCourse'>
+<% for(var i = 0; i < av_courses.length; i++) { %>
+    <input type='submit' id='courseCode' name='courseCode' value='<%= av_courses[i].code %>'>
+    <br>
+<% } %>
+</form>
