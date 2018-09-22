@@ -48,6 +48,24 @@
         <p>Welcome to <%= title %></p>
         <button id ="drag1" type="button" class="btn btn-primary btn-lg outline">Please don't</button>
         <br>
+
+        <h1>Welcome, you have chosen:</h1>
+<form method='post' action='/delCourse'>
+<% for(var i = 0; i < chosen_courses.length; i++) { %>
+    <input type='submit' id='courseCode' name='courseCode' value='<%= chosen_courses[i].code %>'>
+    <br>
+<% } %>
+</form>
+
+<br>
+<h1>Here are available courses</h1>
+<form method='post' action='/addCourse'>
+<% for(var i = 0; i < av_courses.length; i++) { %>
+    <input type='submit' id='courseCode' name='courseCode' value='<%= av_courses[i].code %>'>
+    <br>
+<% } %>
+</form>
+      
       </div>
       <div id="snap" class="col-sm-8" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>this is the second col</p>

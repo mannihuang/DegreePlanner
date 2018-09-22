@@ -50,7 +50,7 @@ var db_courses = [cs1511, cs1521, cs2521, cs3331]
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('planner', {chosen_courses: courses, av_courses: db_courses});
+  res.render('index', {title: 'Welcome',chosen_courses: courses, av_courses: db_courses});
 });
 
 router.post('/addCourse', function(req, res, next) {
@@ -71,7 +71,7 @@ router.post('/addCourse', function(req, res, next) {
       }
     }
   }
-  res.redirect('/users');
+  res.redirect('/');
 });
 
 router.post('/delCourse', function(req, res, next) {
@@ -82,7 +82,7 @@ router.post('/delCourse', function(req, res, next) {
       break;
     }
   }
-  res.redirect('/users');
+  res.redirect('/');
 });
 
 function check_prereq(my_courses, choice) {
