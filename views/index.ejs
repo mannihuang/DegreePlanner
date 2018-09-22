@@ -44,38 +44,69 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-4">
-        <h1><%= title %></h1>
+        <h1>Welcome to CourseBucket</h1>
         <!-- <button id ="drag1" type="button" class="btn btn-primary btn-lg outline">Please don't</button>
 	<br> -->
 </form>
 
 	<h2>Available courses</h2>
         <p>Pick a course to get started!</p>
+        <form action="/addCourse" method='post'>
 	<% for(var i = 0; i < av_courses.length; i++) { %>
-	<button type='submit' id='courseCode' onClick=check() name='courseCode' class="btn btn-primary btn-lg outline" value='<%= av_courses[i].code %>'>
-	<%= av_courses[i].code %></button>
+    <% if(!chosen_courses.includes(av_courses[i])) { %>
+      <button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= av_courses[i].code %>'>
+	     <%= av_courses[i].code %></button> 
+  <% } %>
 	<% } %>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg outline" data-toggle="modal" data-target="#exampleModal">
+  COMP3331
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hazardous Activity</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You are not allowed to choose this course since it needs COMP2521 as prerequisite
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+</form>
       
       </div>
       <div id="snap" class="col-sm-8" ondrop="drop(event)" ondragover="allowDrop(event)">
         <h1>Selected courses</h1>
+        <form action="/delCourse" method="post">
 	<% for(var i = 0; i < chosen_courses.length; i++) { %>
 	    <button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= chosen_courses[i].code %>'>
 	    <%= av_courses[i].code %></button>
 	<% } %>
+</form>
       </div>
     </div>
   </div>
   <script>
-  function check() {
-	  $.post("/addCourse", function(data) {
-	  console.log( "Foo function result:", data );
-	  $('#snap').empty();
-	  $('#snap').append("<p> " + data +  "</p>");
-	  });
-  }
+  // function check() {
+    // $.post("/addCourse", function(data) {
+	  // console.log( "Foo function result:", data );
+	  // $('#snap').empty();
+	  // $('#snap').append("<p> " + data +  "</p>");
+	  // });
+  
   </script>
-	      })
   }
 </body>
 </html>

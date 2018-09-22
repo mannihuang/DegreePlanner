@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+var jsdom = require('jsdom');
+
 var courses = [];
 
 var cs1511 = {
@@ -35,18 +37,9 @@ var cs2521 = {
   }
 };
 
-var cs3331 = {
-  name: "Network",
-  code: "COMP3331",
-  pre_req: {
-    WAM: 0.0,
-    UoC: 0,
-    compul: [],
-    one_of: [[cs2521], [cs1521, cs1511], [cs1521, cs2521]]
-  }
-};
 
-var db_courses = [cs1511, cs1521, cs2521, cs3331]
+
+var db_courses = [cs1511, cs1521, cs2521]
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -56,6 +49,7 @@ router.get('/', function(req, res, next) {
 router.post('/addCourse', function(req, res, next) {
   var added = false;
   var choice = req.body.courseCode;
+  console.log(choice);
   for (var i = 0; i < courses.length; i++) {
     if (courses[i].code === choice) {
       added = true;
