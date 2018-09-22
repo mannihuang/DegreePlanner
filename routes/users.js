@@ -10,12 +10,14 @@ var courses = [];
 var cs1511 = {
   name: "Introduction to Computing",
   code: "COMP1511",
+  outline: "An introduction to problem-solving via programming, which aims to have students develop proficiency in using a high level programming language. Topics: algorithms, program structures (statements, sequence, selection, iteration, functions), data types (numeric, character), data structures (arrays, tuples, pointers, lists), storage structures (memory, addresses), introduction to analysis of algorithms, testing, code quality, teamwork, and reflective practice. The course includes extensive practical work in labs and programming projects.",
   pre_req: null
 };
 
 var cs1521 = {
   name: "Computer System",
   code: "COMP1521",
+  outline: "This course provides a programmer's view on how a computer system executes programs, manipulates data and communicates. It enables students to become effective programmers in dealing with issues of performance, portability, and robustness. It is typically taken in the semester after completing COMP1511, but could be delayed and taken later. It serves as a foundation for later courses on networks, operating systems, computer architecture and compilers, where a deeper understanding of systems-level issues is required. Topics: Introduction to the systems-level view of computing, number representation, machine-level programming, representing high-level programs in machine code, memory, input/output, system architectures, operating systems, networks, parallelism/concurrency, communication/synchronisation. Labs and assignment work in C and machine code.",
   pre_req: {
     WAM: 0.0,
     UoC: 0,
@@ -27,6 +29,7 @@ var cs1521 = {
 var cs2521 = {
   name: "Data Structures and Algo",
   code: "COMP2521",
+  outline: "The goal of this course is to deepen students' understanding of data structures and algorithms and how these can be employed effectively in the design of software systems. We anticipate that it will generally be taken in the second year of a program, but since its only pre-requisite is COMP1511, is it possible to take it in first year. It is an important course in covering a range of core data structures and algorithms that will be used in context in later courses.Topics: An introduction the structure, analysis and usage of a range of fundamental data types and the core algorithms that operate on them, including: algorithm analysis, sorting, searching, trees, graphs, files, algorithmic strategies, analysis and measurement of programs. Labs and programming assignments in C, using a range of Unix tools.",
   pre_req: {
     WAM: 0.0,
     UoC: 0,
@@ -38,6 +41,7 @@ var cs2521 = {
 var cs3331 = {
   name: "Network",
   code: "COMP3331",
+  outline: "Networking technology overview. Protocol design and validation using the finite state automata in conjunction with time-lines. Overview of the IEEE802 network data link protocol standards. Addressing at the data link and network layers. Network layer services. Introduction to routing algorithms such as Distance Vector and Link State. Congestion control mechanisms. Internetworking issues in connecting networks. The Internet Protocol Suite overview. The Internet protocols IPv4 and IPv6. Address resolution using ARP and RARP. Transport layer: issues, transport protocols TCP and UDP. Application level protocols such as: File Transfer Protocol (FTP), Domain Name System (DNS) and Simple Mail Transfer Protocol (SMTP). Introduction to fundamental network security concepts, 802.11 wireless networks and peer to peer networks. There is a substantial network programming component in the assessable material.",
   pre_req: {
     WAM: 0.0,
     UoC: 0,
@@ -46,11 +50,14 @@ var cs3331 = {
   }
 };
 
+
+var compsci_degree = [cs1511, cs1521];
+
 var db_courses = [cs1511, cs1521, cs2521, cs3331]
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('planner', {chosen_courses: courses, av_courses: db_courses});
+  res.render('planner', {chosen_courses: courses, av_courses: db_courses, degree: compsci_degree});
 });
 
 router.post('/addCourse', function(req, res, next) {
