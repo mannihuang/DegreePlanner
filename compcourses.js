@@ -219,7 +219,7 @@ db.once('open', function() {
     optPreReq: ["COMP1927", "COMP2521"]
   });
 
-  comp3141.save(function (err,res){
+  comp3411.save(function (err,res){
     if (err) return console.log("save failure");
     console.log(res.name);
   });
@@ -236,7 +236,53 @@ db.once('open', function() {
     console.log(res.name);
   });
 
+  var comp4920 = new Course({
+    name: "Management and Ethics",
+    code: "COMP4920",
+    compPreReq: [""]
+    optPreReq: ["COMP2511", "COMP2911"]
+  });
 
+  comp4920.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
+
+  var acct1501 = new Course({
+    name: "Accounting 1A",
+    code: "ACCT1501",
+    compPreReq: [""]
+    optPreReq: [""]
+  });
+
+  acct1501.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
+
+  var econ1101 = new Course({
+    name: "Microeconomics 1",
+    code: "ECON1101",
+    compPreReq: [""]
+    optPreReq: [""]
+  });
+
+  econ1101.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
+
+  var comp6441 = new Course({
+    name: "Security Engineering and Cyber Security",
+    code: "COMP6441",
+    compPreReq: [""]
+    optPreReq: [""]
+  });
+
+  comp6441.save(function (err,res){
+    if (err) return console.log("save failure");
+    console.log(res.name);
+  });
 /*  Course.find(function (err, res){
     if (err) return console.log("find failure")
   */
