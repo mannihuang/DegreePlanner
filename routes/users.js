@@ -12,12 +12,14 @@ var courses = [];
 var cs1511 = {
   name: "Introduction to Computing",
   code: "COMP1511",
+  outline: "An introduction to problem-solving via programming, which aims to have students develop proficiency in using a high level programming language. Topics: algorithms, program structures (statements, sequence, selection, iteration, functions), data types (numeric, character), data structures (arrays, tuples, pointers, lists), storage structures (memory, addresses), introduction to analysis of algorithms, testing, code quality, teamwork, and reflective practice. The course includes extensive practical work in labs and programming projects.",
   pre_req: null
 };
 
 var cs1521 = {
   name: "Computer System",
   code: "COMP1521",
+  outline: "This course provides a programmer's view on how a computer system executes programs, manipulates data and communicates. It enables students to become effective programmers in dealing with issues of performance, portability, and robustness. It is typically taken in the semester after completing COMP1511, but could be delayed and taken later. It serves as a foundation for later courses on networks, operating systems, computer architecture and compilers, where a deeper understanding of systems-level issues is required. Topics: Introduction to the systems-level view of computing, number representation, machine-level programming, representing high-level programs in machine code, memory, input/output, system architectures, operating systems, networks, parallelism/concurrency, communication/synchronisation. Labs and assignment work in C and machine code.",
   pre_req: {
     WAM: 0.0,
     UoC: 0,
@@ -29,6 +31,7 @@ var cs1521 = {
 var cs2521 = {
   name: "Data Structures and Algo",
   code: "COMP2521",
+  outline: "The goal of this course is to deepen students' understanding of data structures and algorithms and how these can be employed effectively in the design of software systems. We anticipate that it will generally be taken in the second year of a program, but since its only pre-requisite is COMP1511, is it possible to take it in first year. It is an important course in covering a range of core data structures and algorithms that will be used in context in later courses.Topics: An introduction the structure, analysis and usage of a range of fundamental data types and the core algorithms that operate on them, including: algorithm analysis, sorting, searching, trees, graphs, files, algorithmic strategies, analysis and measurement of programs. Labs and programming assignments in C, using a range of Unix tools.",
   pre_req: {
     WAM: 0.0,
     UoC: 0,

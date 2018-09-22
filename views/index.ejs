@@ -54,7 +54,7 @@
         <form action="/addCourse" method='post'>
 	<% for(var i = 0; i < av_courses.length; i++) { %>
     <% if(!chosen_courses.includes(av_courses[i])) { %>
-      <button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= av_courses[i].code %>'>
+      <button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= av_courses[i].code %>' title='<%= av_courses[i].outline %>'>
 	     <%= av_courses[i].code %></button> 
   <% } %>
 	<% } %>
@@ -91,7 +91,7 @@
         <h1>Selected courses</h1>
         <form action="/delCourse" method="post">
 	<% for(var i = 0; i < chosen_courses.length; i++) { %>
-	    <button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= chosen_courses[i].code %>'>
+	    <button type='submit' id='courseCode' name='courseCode' class="btn btn-primary btn-lg outline" value='<%= chosen_courses[i].code %>' >
 	    <%= av_courses[i].code %></button>
 	<% } %>
 </form>

@@ -26,6 +26,11 @@ body {
 .btn-primary.outline {
   border: 2px solid #559BF4;
   color: #559BF4;
+
+}
+.btn-primary.outline:hover{
+
+  background-color:#ddd;
 }
 
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
