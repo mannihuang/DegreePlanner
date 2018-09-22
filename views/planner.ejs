@@ -10,7 +10,9 @@
 <h1>Here are available courses</h1>
 <form method='post' action='/users/addCourse'>
 <% for(var i = 0; i < av_courses.length; i++) { %>
-    <input type='submit' id='courseCode' name='courseCode' value='<%= av_courses[i].code %>'>
-    <br>
+    <% if(!chosen_courses.includes(av_courses[i])) { %>
+        <input type='submit' id='courseCode' name='courseCode' value='<%= av_courses[i].code %>'>
+        <br>
+    <% } %>
 <% } %>
 </form>
