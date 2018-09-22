@@ -1,33 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-     <!-- Latest compiled and minified CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<head>
+  <title><%= title %></title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-     <!-- jQuery library -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-     <!-- Latest compiled JavaScript -->
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script type"text/javascript">
-	$('button').button().draggable({cancel:false});
-    </script>
-  </head>
-  <body>
-    <div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-4">
-			<h1><%= title %></h1>
-			<p>Welcome to <%= title %></p>
-		</div>
-		<div id="Normal" class="col-sm-8">
-			<p>this is the second col</p>
-			<button type="button" class="btn btn-primary btn-lg outline draggable">Format me!!</button>
-			<button type="button" class="btn btn-primary btn-lg outline draggable">Format me!!</button>
-		</div>
-	</div>
+  <!-- jQuery UI -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  //Just for testing
+  <style>
+  #div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+  }
+</style>
+
+<script>
+  $( init );
+  function init(){
+
+    $('#drag1').draggable({cancel:false});
+
+  }
+  
+  function allowDrop(ev) {
+    ev.preventDefault();
+    console.log("allow drop");
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("button", ev.target.id);
+    console.log("drag");
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("button");
+    ev.target.appendChild(document.getElementById(data));
+    console.log("drop");
+  }
+</script>
+
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <h1><%= title %></h1>
+        <p>Welcome to <%= title %></p>
+        <button id ="drag1" type="button" class="btn btn-primary btn-lg outline">Please don't</button>
+        <br>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+      </div>
+      <div class="col-sm-8">
+        <p>this is the second col</p>
+        <button type="button" class="btn btn-primary btn-lg outline">Format me!!</button>
+        <button type="button" class="btn btn-primary btn-lg outline">Format me!!</button>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
