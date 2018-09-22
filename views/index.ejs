@@ -12,22 +12,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-  //Just for testing
-  <style>
-  #div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-  }
-</style>
 
 <script>
   $( init );
   function init(){
-
-    $('#drag1').draggable({cancel:false});
-
+    $('#drag1').draggable({cancel:false, grid: [ 20 , 20 ]});
   }
   
   function allowDrop(ev) {
@@ -59,9 +48,8 @@
         <p>Welcome to <%= title %></p>
         <button id ="drag1" type="button" class="btn btn-primary btn-lg outline">Please don't</button>
         <br>
-        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
       </div>
-      <div class="col-sm-8">
+      <div id="snap" class="col-sm-8" ondrop="drop(event)" ondragover="allowDrop(event)">
         <p>this is the second col</p>
         <button type="button" class="btn btn-primary btn-lg outline">Format me!!</button>
         <button type="button" class="btn btn-primary btn-lg outline">Format me!!</button>

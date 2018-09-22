@@ -8,7 +8,6 @@ body {
 .col-sm-4 {
   background: #DADCDF;
   min-height: 100vh;
-  height: 100%;
 }
 
 .col-sm-8 {
@@ -22,13 +21,12 @@ body {
 }
 
 .btn-primary.outline {
-  border: 2px solid #DADCDF;
-  color: #DADCDF;
+  border: 2px solid #559BF4;
+  color: #559BF4;
 }
 
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
    color: #073376;
-   border-color: #DADCDF;
    background: #559BF4;
 }
 
